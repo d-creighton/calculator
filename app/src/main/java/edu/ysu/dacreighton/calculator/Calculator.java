@@ -8,11 +8,13 @@ public class Calculator {
     private Operator operator;
     //private Operator previousOperator;
     private Boolean clearInput;
+    private Boolean decimalEntered;
 
     public Calculator() {
         this.input = INITIAL_VALUE;
         this.previousInput = INITIAL_VALUE;
         this.clearInput = false;
+        this.decimalEntered = false;
     }
 
     public void inputNumber(Integer number) {
@@ -36,6 +38,16 @@ public class Calculator {
         }
         this.operator = operator;
         this.clearInput = true;
+    }
+
+    public void inputCharacter(String character) {
+        if (!decimalEntered) {
+            input += character;
+            decimalEntered = true;
+        }
+        else {
+            input = input;
+        }
     }
 
     private void calculateTotal() {

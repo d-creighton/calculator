@@ -68,6 +68,22 @@ public class MainActivity extends AppCompatActivity {
         this.findViewById(R.id.additionButton).setOnClickListener(view -> {
             handleOperator(Operator.Add);
         });
+
+        this.findViewById(R.id.subtractionButton).setOnClickListener(view -> {
+            handleOperator(Operator.Subtract);
+        });
+
+        this.findViewById(R.id.multiplicationButton).setOnClickListener(view -> {
+            handleOperator(Operator.Multiply);
+        });
+
+        this.findViewById(R.id.divisionButton).setOnClickListener(view -> {
+            handleOperator(Operator.Divide);
+        });
+
+        this.findViewById(R.id.decimalButton).setOnClickListener(view -> {
+            handleCharacter(".");
+        });
     }
 
     private void handleInput(Integer number) {
@@ -77,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleOperator(Operator operator) {
         calculator.inputOperator(operator);
+        display.setText(calculator.getInput());
+    }
+
+    private void handleCharacter(String character) {
+        calculator.inputCharacter(character);
         display.setText(calculator.getInput());
     }
 }
