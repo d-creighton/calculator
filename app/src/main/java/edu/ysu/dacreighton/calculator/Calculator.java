@@ -50,10 +50,16 @@ public class Calculator {
         }
     }
 
-    public void inputPercentage(String percentage) {
+    public void inputPercentage() {
         Double percentageInput = Double.parseDouble(input);
-        percentageInput = (percentageInput / 100);
+        percentageInput /= 100;
         input = percentageInput.toString();
+    }
+
+    public void inputPosNeg() {
+        Double posNegInput = Double.parseDouble(input);
+        posNegInput *= -1;
+        input = posNegInput.toString();
     }
 
     private void calculateTotal() {

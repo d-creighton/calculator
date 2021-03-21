@@ -88,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
         this.findViewById(R.id.percentageButton).setOnClickListener(view -> {
             handlePercentage("%");
         });
+
+        this.findViewById(R.id.positiveOrNegativeButton).setOnClickListener(view -> {
+            handlePosNeg("+/-");
+        });
     }
 
     private void handleInput(Integer number) {
@@ -106,7 +110,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handlePercentage(String percentage) {
-        calculator.inputPercentage(percentage);
+        calculator.inputPercentage();
+        display.setText(calculator.getInput());
+    }
+
+    private void handlePosNeg(String posNeg) {
+        calculator.inputPosNeg();
         display.setText(calculator.getInput());
     }
 }
