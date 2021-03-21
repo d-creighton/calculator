@@ -6,13 +6,15 @@ public class Calculator {
     private String input;
     private String previousInput;
     private Operator operator;
-    private Operator previousOperator;
+    //private Operator previousOperator;
     private Boolean clearInput;
+    private Boolean decimalEntered;
 
     public Calculator() {
         this.input = INITIAL_VALUE;
         this.previousInput = INITIAL_VALUE;
         this.clearInput = false;
+        this.decimalEntered = false;
     }
 
     public void inputNumber(Integer number) {
@@ -32,18 +34,27 @@ public class Calculator {
     public void inputOperator(Operator operator) {
         if (this.operator != null) {
             this.calculateTotal();
-            this.previousOperator = operator;
+            //this.previousOperator = operator;
         }
         this.operator = operator;
         this.clearInput = true;
     }
 
+    public void inputCharacter(String character) {
+        if (!decimalEntered) {
+            input += character;
+            decimalEntered = true;
+        }
+        else {
+            input = input;
+        }
+    }
+
     private void calculateTotal() {
         Double valueOne = Double.parseDouble(previousInput);
         Double valueTwo = Double.parseDouble(input);
-        Double total = null;// = valueOne + valueTwo;
-        //Do the math based on the operator
-        //Switch statement
+        Double total = 0.0;
+
         switch (operator) {
             case Add:
                 total = valueOne + valueTwo;
@@ -56,10 +67,6 @@ public class Calculator {
                 break;
             case Divide:
                 total = valueOne / valueTwo;
-                break;
-            case Equal:
-                operator = previousOperator;
-                calculateTotal();
                 break;
         }
         input = total.toString();
