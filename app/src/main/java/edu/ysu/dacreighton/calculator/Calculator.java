@@ -62,6 +62,13 @@ public class Calculator {
         input = posNegInput.toString();
     }
 
+    public void inputClear() {
+        this.input = INITIAL_VALUE;
+        this.previousInput = INITIAL_VALUE;
+        this.clearInput = false;
+        this.decimalEntered = false;
+    }
+
     private void calculateTotal() {
         Double valueOne = Double.parseDouble(previousInput);
         Double valueTwo = Double.parseDouble(input);

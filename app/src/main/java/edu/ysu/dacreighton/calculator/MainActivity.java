@@ -118,4 +118,6 @@ public class MainActivity extends AppCompatActivity {
         calculator.inputPosNeg();
         display.setText(calculator.getInput());
     }
+
+    private void handleClear
 }
