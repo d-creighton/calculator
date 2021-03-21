@@ -82,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         this.findViewById(R.id.decimalButton).setOnClickListener(view -> {
-            handleCharacter(".");
+            handleDecimal(".");
+        });
+
+        this.findViewById(R.id.percentageButton).setOnClickListener(view -> {
+            handlePercentage("%");
         });
     }
 
@@ -96,8 +100,13 @@ public class MainActivity extends AppCompatActivity {
         display.setText(calculator.getInput());
     }
 
-    private void handleCharacter(String character) {
-        calculator.inputCharacter(character);
+    private void handleDecimal(String decimal) {
+        calculator.inputDecimal(decimal);
+        display.setText(calculator.getInput());
+    }
+
+    private void handlePercentage(String percentage) {
+        calculator.inputPercentage(percentage);
         display.setText(calculator.getInput());
     }
 }

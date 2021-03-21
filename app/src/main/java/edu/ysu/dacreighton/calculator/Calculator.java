@@ -40,14 +40,20 @@ public class Calculator {
         this.clearInput = true;
     }
 
-    public void inputCharacter(String character) {
+    public void inputDecimal(String decimal) {
         if (!decimalEntered) {
-            input += character;
+            input += decimal;
             decimalEntered = true;
         }
         else {
             input = input;
         }
+    }
+
+    public void inputPercentage(String percentage) {
+        Double percentageInput = Double.parseDouble(input);
+        percentageInput = (percentageInput / 100);
+        input = percentageInput.toString();
     }
 
     private void calculateTotal() {
