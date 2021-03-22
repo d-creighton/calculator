@@ -92,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
         this.findViewById(R.id.positiveOrNegativeButton).setOnClickListener(view -> {
             handlePosNeg("+/-");
         });
+
+        this.findViewById(R.id.acButton).setOnClickListener(view -> {
+            handleClear("AC");
+        });
     }
 
     private void handleInput(Integer number) {
@@ -119,5 +123,8 @@ public class MainActivity extends AppCompatActivity {
         display.setText(calculator.getInput());
     }
 
-    private void handleClear
+    private void handleClear(String clear) {
+        calculator.inputClear();
+        display.setText(calculator.getInput());
+    }
 }
