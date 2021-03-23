@@ -68,6 +68,7 @@ public class Calculator {
         this.previousInput = INITIAL_VALUE;
         this.clearInput = false;
         this.decimalEntered = false;
+        this.operator = null;
     }
 
     private void calculateTotal() {
