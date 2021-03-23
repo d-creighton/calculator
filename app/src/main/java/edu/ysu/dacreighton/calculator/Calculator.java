@@ -54,6 +54,7 @@ public class Calculator {
     public void inputPercentage() {
         Double percentageInput = Double.parseDouble(input);
         percentageInput /= 100;
+        decimalEntered = true;
         input = percentageInput.toString();
     }
 
