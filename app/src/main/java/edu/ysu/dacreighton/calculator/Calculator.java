@@ -22,6 +22,7 @@ public class Calculator {
             previousInput = input;
             input = number.toString();
             clearInput = false;
+            decimalEntered = false;
         }
         else if (input.equals(INITIAL_VALUE)) {
             input = number.toString();
