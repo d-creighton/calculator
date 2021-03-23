@@ -22,6 +22,7 @@ public class Calculator {
             previousInput = input;
             input = number.toString();
             clearInput = false;
+            decimalEntered = false;
         }
         else if (input.equals(INITIAL_VALUE)) {
             input = number.toString();
@@ -40,14 +41,34 @@ public class Calculator {
         this.clearInput = true;
     }
 
-    public void inputCharacter(String character) {
+    public void inputDecimal(String decimal) {
         if (!decimalEntered) {
-            input += character;
+            input += decimal;
             decimalEntered = true;
         }
         else {
             input = input;
         }
+    }
+
+    public void inputPercentage() {
+        Double percentageInput = Double.parseDouble(input);
+        percentageInput /= 100;
+        input = percentageInput.toString();
+    }
+
+    public void inputPosNeg() {
+        Double posNegInput = Double.parseDouble(input);
+        posNegInput *= -1;
+        input = posNegInput.toString();
+    }
+
+    public void inputClear() {
+        this.input = INITIAL_VALUE;
+        this.previousInput = INITIAL_VALUE;
+        this.clearInput = false;
+        this.decimalEntered = false;
+        this.operator = null;
     }
 
     private void calculateTotal() {
