@@ -6,7 +6,7 @@ public class Calculator {
     private String input;
     private String previousInput;
     private Operator operator;
-    //private Operator previousOperator;
+    private Operator previousOperator;
     private Boolean clearInput;
     private Boolean decimalEntered;
 
@@ -35,7 +35,7 @@ public class Calculator {
     public void inputOperator(Operator operator) {
         if (this.operator != null) {
             this.calculateTotal();
-            //this.previousOperator = operator;
+            this.previousOperator = operator;
         }
         this.operator = operator;
         this.clearInput = true;
@@ -54,6 +54,7 @@ public class Calculator {
     public void inputPercentage() {
         Double percentageInput = Double.parseDouble(input);
         percentageInput /= 100;
+        decimalEntered = true;
         input = percentageInput.toString();
     }
 
@@ -88,6 +89,10 @@ public class Calculator {
                 break;
             case Divide:
                 total = valueOne / valueTwo;
+                break;
+            case Equal:
+                operator = previousOperator;
+                calculateTotal();
                 break;
         }
         input = total.toString();

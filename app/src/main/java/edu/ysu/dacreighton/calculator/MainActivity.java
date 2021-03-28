@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
             handleOperator(Operator.Divide);
         });
 
+        this.findViewById(R.id.equalButton).setOnClickListener(view -> {
+            handleOperator(Operator.Equal);
+        });
+
         this.findViewById(R.id.decimalButton).setOnClickListener(view -> {
             handleDecimal(".");
         });
